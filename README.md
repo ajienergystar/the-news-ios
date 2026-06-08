@@ -2,6 +2,8 @@
 
 A native iOS news reader built with **Swift** and **UIKit**, powered by the [NewsAPI.org](https://newsapi.org) REST API. Browse news by category, discover sources, read paginated article feeds with endless scrolling, and open full stories in an in-app web view — with robust handling for success, empty results, offline mode, and API errors.
 
+**Created by [Aji Prakosa](https://github.com/ajienergystar)**
+
 ---
 
 ## Table of Contents
@@ -20,6 +22,7 @@ A native iOS news reader built with **Swift** and **UIKit**, powered by the [New
 - [Code Quality](#code-quality)
 - [Error Handling](#error-handling)
 - [Contributing](#contributing)
+- [Author](#author)
 - [License](#license)
 
 ---
@@ -404,9 +407,17 @@ Please do not include API keys or other secrets in your commits.
 
 ---
 
+## Author
+
+This app was designed and developed by **Aji Prakosa**.
+
+- GitHub: [@ajienergystar](https://github.com/ajienergystar)
+
+---
+
 ## License
 
-This project does not currently include a license file. All rights reserved by the author unless otherwise specified.
+This project does not currently include a license file. All rights reserved by **Aji Prakosa** unless otherwise specified.
 
 ---
 
