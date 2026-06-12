@@ -24,7 +24,8 @@ final class DIContainer: DIContaining {
     private var factories: [ObjectIdentifier: Factory] = [:]
     private var scopes: [ObjectIdentifier: DependencyScope] = [:]
     private var singletons: [ObjectIdentifier: Any] = [:]
-    private let lock = NSLock()
+    /// Recursive lock allows factories to resolve other dependencies while registering.
+    private let lock = NSRecursiveLock()
 
     // MARK: - Registration
 

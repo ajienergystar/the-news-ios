@@ -62,4 +62,16 @@ struct DIContainerTests {
 
         #expect(apiService is NewsAPIService)
     }
+
+    @Test func resolve_nestedDependencies_doesNotDeadlock() {
+        let container = DIContainer()
+
+        container.register(String.self, scope: .singleton) { _ in "session" }
+        container.register(Int.self, scope: .singleton) { container in
+            _ = container.resolve(String.self)
+            return 42
+        }
+
+        #expect(container.resolve(Int.self) == 42)
+    }
 }
