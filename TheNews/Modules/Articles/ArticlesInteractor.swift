@@ -19,7 +19,7 @@ final class ArticlesInteractor: ArticlesInteractorProtocol {
     private var allArticles: [Article] = []
     private var isFetching = false
 
-    init(sourceID: String, apiService: NewsAPIServiceProtocol = NewsAPIService.shared) {
+    init(sourceID: String, apiService: NewsAPIServiceProtocol) {
         self.sourceID = sourceID
         self.apiService = apiService
     }

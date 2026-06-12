@@ -52,7 +52,7 @@ final class MockArticlesView: ArticlesViewProtocol {
 
 final class MockArticlesRouter: ArticlesRouterProtocol {
 
-    static func createModule(sourceID: String) -> UIViewController {
+    static func createModule(sourceID: String, container: DIContainer) -> UIViewController {
         UIViewController()
     }
 
@@ -115,7 +115,7 @@ final class MockSourcesView: SourcesViewProtocol {
 
 final class MockSourcesRouter: SourcesRouterProtocol {
 
-    static func createModule(category: String) -> UIViewController {
+    static func createModule(category: String, container: DIContainer) -> UIViewController {
         UIViewController()
     }
 
@@ -146,7 +146,7 @@ final class MockCategoriesView: CategoriesViewProtocol {
 
 final class MockCategoriesRouter: CategoriesRouterProtocol {
 
-    static func createModule() -> UIViewController {
+    static func createModule(container: DIContainer) -> UIViewController {
         UIViewController()
     }
 

@@ -10,7 +10,8 @@ import UIKit
 
 final class ArticleDetailRouter: ArticleDetailRouterProtocol {
 
-    static func createModule(url: URL, title: String) -> UIViewController {
+    static func createModule(url: URL, title: String, container: DIContainer) -> UIViewController {
+        _ = container
         let view = ArticleDetailViewController()
         let presenter = ArticleDetailPresenter(url: url)
         let interactor = ArticleDetailInteractor()
@@ -21,8 +22,10 @@ final class ArticleDetailRouter: ArticleDetailRouterProtocol {
         presenter.view = view
         presenter.interactor = interactor
         interactor.output = presenter
-        _ = router
+        router.viewController = view
 
         return view
     }
+
+    weak var viewController: UIViewController?
 }

@@ -20,7 +20,7 @@ final class SourcesInteractor: SourcesInteractorProtocol {
     private let pageSize = 20
     private var searchQuery = ""
 
-    init(category: String, apiService: NewsAPIServiceProtocol = NewsAPIService.shared) {
+    init(category: String, apiService: NewsAPIServiceProtocol) {
         self.category = category
         self.apiService = apiService
     }

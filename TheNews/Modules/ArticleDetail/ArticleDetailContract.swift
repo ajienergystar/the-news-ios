@@ -30,5 +30,5 @@ protocol ArticleDetailInteractorOutputProtocol: AnyObject {
 }
 
 protocol ArticleDetailRouterProtocol: AnyObject {
-    static func createModule(url: URL, title: String) -> UIViewController
+    static func createModule(url: URL, title: String, container: DIContainer) -> UIViewController
 }

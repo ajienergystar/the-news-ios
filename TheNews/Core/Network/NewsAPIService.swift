@@ -16,10 +16,9 @@ protocol NewsAPIServiceProtocol {
 
 final class NewsAPIService: NewsAPIServiceProtocol {
 
-    static let shared = NewsAPIService()
     private let session: URLSession
 
-    init(session: URLSession = .shared) {
+    init(session: URLSession) {
         self.session = session
     }
 

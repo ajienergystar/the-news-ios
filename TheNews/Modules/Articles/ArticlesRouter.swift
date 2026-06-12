@@ -11,12 +11,18 @@ import UIKit
 final class ArticlesRouter: ArticlesRouterProtocol {
 
     weak var viewController: UIViewController?
+    private let container: DIContainer
 
-    static func createModule(sourceID: String) -> UIViewController {
+    init(container: DIContainer) {
+        self.container = container
+    }
+
+    static func createModule(sourceID: String, container: DIContainer) -> UIViewController {
+        let apiService = container.resolve(NewsAPIServiceProtocol.self)
         let view = ArticlesViewController()
         let presenter = ArticlesPresenter()
-        let interactor = ArticlesInteractor(sourceID: sourceID)
-        let router = ArticlesRouter()
+        let interactor = ArticlesInteractor(sourceID: sourceID, apiService: apiService)
+        let router = ArticlesRouter(container: container)
 
         view.presenter = presenter
         presenter.view = view
@@ -29,7 +35,7 @@ final class ArticlesRouter: ArticlesRouterProtocol {
     }
 
     func navigateToArticleDetail(url: URL, title: String) {
-        let detailVC = ArticleDetailRouter.createModule(url: url, title: title)
+        let detailVC = ArticleDetailRouter.createModule(url: url, title: title, container: container)
         viewController?.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
 
         let window = UIWindow(windowScene: windowScene)
-        let categoriesVC = CategoriesRouter.createModule()
+        let container = AppDependencies.makeContainer()
+        let categoriesVC = CategoriesRouter.createModule(container: container)
         let navigationController = UINavigationController(rootViewController: categoriesVC)
         navigationController.navigationBar.prefersLargeTitles = true
 

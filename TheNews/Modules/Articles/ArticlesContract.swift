@@ -42,6 +42,6 @@ protocol ArticlesInteractorOutputProtocol: AnyObject {
 }
 
 protocol ArticlesRouterProtocol: AnyObject {
-    static func createModule(sourceID: String) -> UIViewController
+    static func createModule(sourceID: String, container: DIContainer) -> UIViewController
     func navigateToArticleDetail(url: URL, title: String)
 }

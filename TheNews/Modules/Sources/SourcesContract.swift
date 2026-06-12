@@ -44,6 +44,6 @@ protocol SourcesInteractorOutputProtocol: AnyObject {
 }
 
 protocol SourcesRouterProtocol: AnyObject {
-    static func createModule(category: String) -> UIViewController
+    static func createModule(category: String, container: DIContainer) -> UIViewController
     func navigateToArticles(sourceID: String)
 }

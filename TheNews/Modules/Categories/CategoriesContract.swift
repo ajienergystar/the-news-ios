@@ -35,6 +35,6 @@ protocol CategoriesInteractorOutputProtocol: AnyObject {
 // MARK: - Router
 
 protocol CategoriesRouterProtocol: AnyObject {
-    static func createModule() -> UIViewController
+    static func createModule(container: DIContainer) -> UIViewController
     func navigateToSources(category: String)
 }

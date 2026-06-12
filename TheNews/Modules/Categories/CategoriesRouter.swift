@@ -11,12 +11,17 @@ import UIKit
 final class CategoriesRouter: CategoriesRouterProtocol {
 
     weak var viewController: UIViewController?
+    private let container: DIContainer
 
-    static func createModule() -> UIViewController {
+    init(container: DIContainer) {
+        self.container = container
+    }
+
+    static func createModule(container: DIContainer) -> UIViewController {
         let view = CategoriesViewController()
         let presenter = CategoriesPresenter()
         let interactor = CategoriesInteractor()
-        let router = CategoriesRouter()
+        let router = CategoriesRouter(container: container)
 
         view.presenter = presenter
         presenter.view = view
@@ -29,7 +34,7 @@ final class CategoriesRouter: CategoriesRouterProtocol {
     }
 
     func navigateToSources(category: String) {
-        let sourcesVC = SourcesRouter.createModule(category: category)
+        let sourcesVC = SourcesRouter.createModule(category: category, container: container)
         viewController?.navigationController?.pushViewController(sourcesVC, animated: true)
     }
 }
